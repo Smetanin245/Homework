@@ -79,7 +79,7 @@ public class Main {
     }
 
     private static void getPaintingsByArtist(Connection connection , int id) throws SQLException{
-        if (id < 0) return;
+        if (id <= 0) return;
 
         String columnName0 = "id", columnName1 = "name", columnName2 = "year",
                 columnName3 = "material", columnName4 = "style", columnName5 = "price",
@@ -137,7 +137,7 @@ public class Main {
                                     String style, int price, int author_id, int museum_id) throws SQLException{
         if (name == null || name.isBlank() || yearOfCreation == null || yearOfCreation.isBlank()
                 || material == null || material.isBlank() || style == null || style.isBlank() ||
-                price < 0 || author_id < 0 || museum_id<0) return;
+                price < 0 || author_id <= 0 || museum_id<=0) return;
 
 
         PreparedStatement statement = connection.prepareStatement(
@@ -169,7 +169,7 @@ public class Main {
 
         }
     private static void removePainting(Connection connection, String name,int painting_id) throws SQLException {
-        if (name == null || name.isBlank() || painting_id<0) return;
+        if (name == null || name.isBlank() || painting_id<=0) return;
 
         PreparedStatement statement = connection.prepareStatement("DELETE from works WHERE name=?;");
         statement.setString(1, name);
@@ -197,7 +197,7 @@ public class Main {
 
     }
     private static void getPaintingsAdress(Connection connection , int id) throws SQLException{
-        if (id < 0) return;
+        if (id <= 0) return;
 
         String columnName0 = "address";
 
