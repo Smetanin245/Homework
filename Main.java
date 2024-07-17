@@ -117,7 +117,7 @@ public class Main {
         String param1 = null, param2 = null, param3 = null, param4 = null;
 
         Statement statement = connection.createStatement();
-        ResultSet rs = statement.executeQuery("SELECT * FROM works WHERE price ="+price+";"); // выполняем запроса на поиск и получаем список ответов
+        ResultSet rs = statement.executeQuery("SELECT * FROM works WHERE price ="+price+";"); 
 
         while (rs.next()) {
             param7 = rs.getInt(columnName7);
@@ -142,7 +142,7 @@ public class Main {
 
         PreparedStatement statement = connection.prepareStatement(
                 "INSERT INTO works(name, year,material,style,price,author_id,museum_id) VALUES (?, ?, ?, " +
-                        "?, ?, ?, ?) returning id;", Statement.RETURN_GENERATED_KEYS);    // создаем оператор шаблонного-запроса с "включаемыми" параметрами - ?
+                        "?, ?, ?, ?) returning id;", Statement.RETURN_GENERATED_KEYS);    
         statement.setString(1, name);
         statement.setString(2, yearOfCreation);
         statement.setString(3, material);
@@ -224,8 +224,8 @@ public class Main {
         int param0 = -1, param5 = -1, param6 = -1, param7 = -1;
         String param1 = null, param2 = null, param3 = null, param4 = null;
 
-        Statement statement = connection.createStatement();     // создаем оператор для простого запроса (без параметров)
-        ResultSet rs = statement.executeQuery("SELECT * FROM works WHERE lower(style) =lower('"+style+"');"); // выполняем запроса на поиск и получаем список ответов
+        Statement statement = connection.createStatement();     
+        ResultSet rs = statement.executeQuery("SELECT * FROM works WHERE lower(style) =lower('"+style+"');"); 
 
         while (rs.next()) {
             param7 = rs.getInt(columnName7);
@@ -261,7 +261,7 @@ public class Main {
 
 
         PreparedStatement statement = connection.prepareStatement(
-                "INSERT INTO museum(name, country,address) VALUES (?, ?, ?) returning id;", Statement.RETURN_GENERATED_KEYS);    // создаем оператор шаблонного-запроса с "включаемыми" параметрами - ?
+                "INSERT INTO museum(name, country,address) VALUES (?, ?, ?) returning id;", Statement.RETURN_GENERATED_KEYS);    
         statement.setString(1, name);
         statement.setString(2, country);
         statement.setString(3, address);
