@@ -88,8 +88,8 @@ public class Main {
         int param0 = -1, param5 = -1, param6 = -1, param7 = -1;
         String param1 = null, param2 = null, param3 = null, param4 = null;
 
-        Statement statement = connection.createStatement();     // создаем оператор для простого запроса (без параметров)
-        ResultSet rs = statement.executeQuery("SELECT * FROM works WHERE author_id ="+id+";"); // выполняем запроса на поиск и получаем список ответов
+        Statement statement = connection.createStatement();     
+        ResultSet rs = statement.executeQuery("SELECT * FROM works WHERE author_id ="+id+";"); 
 
         while (rs.next()) {
             param7 = rs.getInt(columnName7);
